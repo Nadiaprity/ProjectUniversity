@@ -30,7 +30,9 @@
            $_SESSION['doctor_number'] = $doctor_row['number'];
            $_SESSION['doctor_email'] = $doctor_row['email'];
            $_SESSION['doctor_rating'] = $doctor_row['rating'];
-           header('Location: suggested_doctor.php');
+
+            header('Location: ./suggested_doctor.php');
+ 
        }else{
            echo "doctor not available";
        }

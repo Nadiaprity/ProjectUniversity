@@ -1,8 +1,12 @@
 <?php
     session_start();
     ob_start();
-    if($_SESSION['id']){
-      
+    if($_SESSION['deases']){
+        $session__deases = $_SESSION['deases'];
+        $specialidze = "";
+    }else{
+        header('location: ../../../index.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -77,9 +81,3 @@
 </body>
 
 </html>
-
-<?php
-   }else{
-    header('location: ../../../index.php');
-}
-?>
