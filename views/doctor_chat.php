@@ -149,25 +149,22 @@
       
        <ul>
         <?php 
-          $doctorId = $_GET['id'];
-          $userId = $_SESSION['userId'];
+          $patientId = $_GET['id'];
           include '../db/connection.php';
-          $select_info = "SELECT * FROM health_info WHERE user_id='$userId' ORDER BY id DESC LIMIT 1";
-          $result = mysqli_query($conn, $select_info);
-            while ($row = mysqli_fetch_array($result)){
-              if($row['suger'] <= 50){
-                $step1 = true;
-              }
-              if($row['suger'] > 50){
-                $step2 = true;
-              }
-            ?>
-            <h5>Health Condition</h5>
-         <li><p class="mb-0">BP:<?php echo $row['pressure']; ?></p></li>
-         <li><p class="mb-0">BS: <?php echo $row['suger']; ?></p></li>
-         <li><p class="mb-0">Temperature: <?php echo $row['temperature']; ?></p></li>
+          $sql = "SELECT * FROM health_info WHERE user_id='$patientId' LIMIT 1";
+          $result = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+          ?>
+          <h5>Health Condition</h5>
+          <ul>
+            <li><p class="mb-0">BP: <?php echo $row['pressure']; ?></p></li>
+            <li><p class="mb-0">BS: <?php echo $row['suger']; ?></p></li>
+            <li><p class="mb-0">Temperature: <?php echo $row['temperature']; ?></p></li>
+         </ul>
         <?php
           }
+        }
         ?>
        </ul>
      </div>
@@ -200,7 +197,8 @@
 		        $doctorId = $_SESSION['userId'];
 		        $message = $_POST['message'];
 		        $q1 ="INSERT INTO chat (doctor_id,patient_id,messages) VALUES('$doctorId','$patientId','$message')";
-		        $conn->query($q1);
+            $conn->query($q1);
+            header("Refresh:0");
 		      }
 		    ?>
 			<form method="post">

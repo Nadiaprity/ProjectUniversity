@@ -1,7 +1,7 @@
 <?php
     session_start();
     ob_start();
-    if($_SESSION['id']){
+    if($_SESSION['doctor_specialist']){
       
 ?>
 
@@ -41,19 +41,52 @@
 
     <div class="container py-5">
         <div class="row">
-            <div class="col-6 m-auto">
+            <div class="col-12 col-lg-6 m-auto">
                 <div class="card">
                     <div class="card-header text-center">
                         <h5 class="card-text">Suggested doctor for your diseases</h5>
                     </div>
-                    <div class="card-body text-center">
+                    <div class="card-body">
+
+                        
+                        <?php 
+                            include '../../db/connection.php';
+                            $special = $_SESSION['doctor_specialist'];
+                            $sql = "SELECT * FROM doctor_info WHERE specialist= '$special'";
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result) > 0) {
+                                while($row = mysqli_fetch_assoc($result)) {
+                            ?>
+
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="text-capitalize">Name: <?php echo $row['name']; ?></h5>
+                                    <p class="mb-0">Specialidze: <?php echo $row['specialist']; ?></p>
+                                    <p class="mb-0">Rating: <?php echo $row['rating']; ?></p>
+                                    <p class="mb-0">Contact: <?php echo $row['number']; ?></p>
+                                    <p class="mb-0">E-mail: <?php echo $row['email']; ?></p>
+                                    <a href="../chat.php?id=<?php echo $row['id']; ?>">Continue Chat</a>    
+                                </div>
+                            </div>
+
+                        <?php   
+                                }
+                            }else{
+                        ?>
+
+                            <div class="card">
+                                <div class="card-body p-4 text-center">
+                                    <h5 class="mb-0 text-danger">Doctor not found .</h5>
+                                </div>
+                            </div>
+
+                        <?php
+                            }
+                            
+                        ?>
                     
-                                <h5 class="text-capitalize">Name: <?php echo $_SESSION['doctor_name']; ?></h5>
-                                <p>Specialidze: <?php echo $_SESSION['doctor_specialist']; ?></p>
-                                <p>Rating: <?php echo $_SESSION['doctor_rating']; ?></p>
-                                <p>Contact: <?php echo $_SESSION['doctor_number']; ?></p>
-                                <p>E-mail: <?php echo $_SESSION['doctor_email']; ?></p>
-                                <a href="../chat.php?id=<?php echo $_SESSION['id']; ?>">Continue Chat</a>
+                                
                      
                             
                     </div>

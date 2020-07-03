@@ -24,12 +24,7 @@
        $select_doctor = mysqli_query($conn, "SELECT * FROM doctor_info WHERE specialist= '$doctor_type'");
        $doctor_row = mysqli_fetch_array($select_doctor);
        if(count($doctor_row) > 0){ 
-           $_SESSION['id'] = $doctor_row['id'];
-           $_SESSION['doctor_name'] = $doctor_row['name'];
            $_SESSION['doctor_specialist'] = $doctor_row['specialist'];
-           $_SESSION['doctor_number'] = $doctor_row['number'];
-           $_SESSION['doctor_email'] = $doctor_row['email'];
-           $_SESSION['doctor_rating'] = $doctor_row['rating'];
 
             header('Location: ./suggested_doctor.php');
  
