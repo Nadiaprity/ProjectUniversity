@@ -17,20 +17,39 @@
        $gastrrict = $_POST["gastrrict"];
        $discoloration = $_POST["discoloration"];
 
-       $select = mysqli_query($conn, "SELECT * FROM symptoms WHERE vomiting= '$vomi' OR gastrointestinal= '$gastrrict' OR yellow_discoloration= '$discoloration'");
-       $row = mysqli_fetch_array($select);
-       $doctor_type = $row['specialidze'];
-       
-       $select_doctor = mysqli_query($conn, "SELECT * FROM doctor_info WHERE specialist= '$doctor_type'");
-       $doctor_row = mysqli_fetch_array($select_doctor);
-       if(count($doctor_row) > 0){ 
-           $_SESSION['doctor_specialist'] = $doctor_row['specialist'];
+                $pressure=$_POST["pressure"];
+				$suger=$_POST["suger"];
+				$weight=$_POST["weight"];
+				$height=$_POST["height"];
+				$temperature=$_POST["temperature"];
+				
+				
+				$sql = "INSERT INTO health_info (user_id, pressure, suger, weight, height, temperature) 
+				        VALUES('$sessionId','$pressure','$suger','$weight','$height','$temperature')";
+				
+				if($conn->query($sql))
+				{
+					$select = mysqli_query($conn, "SELECT * FROM symptoms WHERE vomiting= '$vomi' OR gastrointestinal= '$gastrrict' OR yellow_discoloration= '$discoloration'");
+                    $row = mysqli_fetch_array($select);
+                    $doctor_type = $row['specialidze'];
+                    
+                    $select_doctor = mysqli_query($conn, "SELECT * FROM doctor_info WHERE specialist= '$doctor_type'");
+                    $doctor_row = mysqli_fetch_array($select_doctor);
+                    if(count($doctor_row) > 0){ 
+                        $_SESSION['doctor_specialist'] = $doctor_row['specialist'];
 
-            header('Location: ./suggested_doctor.php');
- 
-       }else{
-           echo "doctor not available";
-       }
+                            header('Location: ./suggested_doctor.php');
+                
+                    }else{
+                        echo "doctor not available";
+                    }
+				}
+				else
+				{
+					echo "Data not Inserted";
+				}
+
+       
   	}
   ?>
 <!DOCTYPE html>
