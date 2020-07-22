@@ -139,8 +139,24 @@
          <li><p class="mb-0 text-capitalize">Name: <?php echo $row['name']; ?></p></li>
          <li><p class="mb-0">Age: <?php echo $row['age']; ?></p></li>
          <li><p class="mb-0">Gender: <?php echo $row['gender']; ?></p></li>
+
+         
          <?php
           }
+          ?>
+          <?php
+          $patientId = $_GET['id'];
+          include '../db/connection.php';
+          $select_patient = "SELECT * FROM health_info WHERE user_id='$patientId' LIMIT 1";
+          $result = mysqli_query($conn, $select_patient);
+            while ($row = mysqli_fetch_array($result)){  
+          ?>
+          
+                <li><p class="mb-0">Weight: <?php echo $row['weight']; ?></p></li>
+                <li><p class="mb-0">Height: <?php echo $row['height']; ?></p></li>
+        
+          <?php
+            }
           ?>
        </ul>
      </div>
