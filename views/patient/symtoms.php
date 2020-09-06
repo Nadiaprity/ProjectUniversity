@@ -13,22 +13,21 @@
   	if(isset($_POST['submit'])){
         include '../../db/connection.php';
 
-       $vomi = $_POST["vomitting"];
-       $gastrrict = $_POST["gastrrict"];
-       $discoloration = $_POST["discoloration"];
+        $vomi = $_POST["vomitting"];
+        $gastrrict = $_POST["gastrrict"];
+        $discoloration = $_POST["discoloration"];
 
-                $pressure=$_POST["pressure"];
-				$suger=$_POST["suger"];
-				$weight=$_POST["weight"];
-				$height=$_POST["height"];
-				$temperature=$_POST["temperature"];
+        $pressure=$_POST["pressure"];
+		$suger=$_POST["suger"];
+		$weight=$_POST["weight"];
+		$height=$_POST["height"];
+		$temperature=$_POST["temperature"];
 				
 				
 				$sql = "INSERT INTO health_info (user_id, pressure, suger, weight, height, temperature) 
-				        VALUES('$sessionId','$pressure','$suger','$weight','$height','$temperature')";
+				        VALUES('$sessionId', '$pressure', '$suger', '$weight', '$height', '$temperature')";
 				
-				if($conn->query($sql))
-				{
+				if($conn->query($sql) === TRUE) {
 					$select = mysqli_query($conn, "SELECT * FROM symptoms WHERE vomiting= '$vomi' OR gastrointestinal= '$gastrrict' OR yellow_discoloration= '$discoloration'");
                     $row = mysqli_fetch_array($select);
                     $doctor_type = $row['specialidze'];
@@ -43,9 +42,7 @@
                     }else{
                         echo "doctor not available";
                     }
-				}
-				else
-				{
+				}else{
 					echo "Data not Inserted";
 				}
 

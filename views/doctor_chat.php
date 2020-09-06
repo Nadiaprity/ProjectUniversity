@@ -167,7 +167,7 @@
         <?php 
           $patientId = $_GET['id'];
           include '../db/connection.php';
-          $sql = "SELECT * FROM health_info WHERE user_id='$patientId' LIMIT 1";
+          $sql = "SELECT * FROM health_info WHERE user_id='$patientId' ORDER BY user_id DESC LIMIT 1";
           $result = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) {
