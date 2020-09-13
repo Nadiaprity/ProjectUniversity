@@ -54,7 +54,7 @@
 .chat{
 			width: 100%;
 			height: 100vh;
-			background: #ff6347;
+			background: #e76166;
 
 		}
 		.card{
@@ -72,9 +72,12 @@
 
 		}
 		.card .card-body .message{
-			background:#00FFFF;
+			background:#c0c0c0;
 
 		}
+
+    
+
 		.card .card-body p{
 			font-size: 15px;
 			line-height: 1.5rem;
@@ -171,8 +174,9 @@
           $result = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) {
-          ?>
-          <h5>Health Condition</h5>
+          ?></ul>
+
+              <ul><h5>Health Condition</h5></ul>
           <ul>
             <li><p class="mb-0">BP: <?php echo $row['pressure']; ?></p></li>
             <li><p class="mb-0">BS: <?php echo $row['suger']; ?></p></li>
