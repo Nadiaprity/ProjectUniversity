@@ -142,10 +142,10 @@
                         <input class="form-control" name="temperature" placeholder="Temperature">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Body symptoms:</label>
+                        <label for="exampleFormControlSelect1">Fever?</label>
                         <select class="form-control" name="body_symptoms" id="exampleFormControlSelect1">
-                            <option value="fever">Fever</option>
-                            <option value="jondis">jondis</option>
+                            <option value="fever">Yes</option>
+                            <option value="jondis">No</option>
                         </select>
                     </div>
 
@@ -183,34 +183,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Dark urine?</label>
-                        <select class="form-control" name="deases" id="exampleFormControlSelect1">
-                            <option value="fever">Yes</option>
-                            <option value="jondis">NO</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">itchiness?</label>
-                        <select class="form-control" name="itchiness" id="exampleFormControlSelect1">
-                            <option value="fever">Yes</option>
-                            <option value="jondis">NO</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">chest pain?</label>
-                        <select class="form-control" name="chest_pain" id="exampleFormControlSelect1">
-                            <option value="fever">Yes</option>
-                            <option value="jondis">NO</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">coldness in your legs?</label>
-                        <select class="form-control" name="coldness" id="exampleFormControlSelect1">
-                            <option value="fever">Yes</option>
-                            <option value="jondis">NO</option>
-                        </select>
-                    </div>
+                   
                     <button type="submit" name="submit" class="btn btn-info btn-block shadow-none py-1">Submit</button>
                 </form>
             </div>

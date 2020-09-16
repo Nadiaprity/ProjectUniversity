@@ -114,26 +114,28 @@
     .chat-box .main-chat-box .chat-card .left-message{
       padding: 5px 10px;
       border-radius: 5px;
-      background: red;
+      /*Message Background*/
+      background: #c0c0c0 ;
       max-width: 400px;
       margin: 15px;
     }
     .chat-box .main-chat-box .chat-card .left-message p{
       color: #ffffff;
-      font-size: 14px;
+      font-size: 16px;
       margin: 0;
     }
 
     .chat-box .main-chat-box .chat-card .right-message{
       padding: 5px 10px;
       border-radius: 5px;
-      background: brown;
+      /*Message Background*/
+      background: #dfdfdf;
       max-width: 400px;
       margin: 15px;
     }
     .chat-box .main-chat-box .chat-card .right-message p{
       color: #ffffff;
-      font-size: 14px;
+      font-size: 16px;
       margin: 0;
     }
     .chat-box .main-chat-box .chat-form{
@@ -243,8 +245,8 @@
               }
             ?>
             <h5>Health Condition</h5>
-         <li><p class="mb-0">BP:<?php echo $row['pressure']; ?></p></li>
-         <li><p class="mb-0">BS: <?php echo $row['suger']; ?></p></li>
+         <li><p class="mb-0">Blood Pressure:<?php echo $row['pressure']; ?></p></li>
+         <li><p class="mb-0">Blood Suger: <?php echo $row['suger']; ?></p></li>
          <li><p class="mb-0">Temperature: <?php echo $row['temperature']; ?></p></li>
         <?php
           }
@@ -267,7 +269,7 @@
             while ($row = mysqli_fetch_array($result)){
       ?>
       <div class="left-message">
-        <p><?php echo $row['messages']; ?></p>
+        <p class="text-danger font-weight-bold"><b><big><?php echo $row['messages']; ?></big></b></p>
       </div>
 
       <?php

@@ -62,9 +62,17 @@
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <h5 class="text-capitalize">Name: <?php echo $row['name']; ?></h5>
-                                    <p class="mb-0">Specialidze: <?php echo $row['specialist']; ?></p>
-                                    <p class="mb-0">Rating: <?php echo $row['rating']; ?></p>
-                                    <p class="mb-0">Contact: <?php echo $row['number']; ?></p>
+                                    <p class="mb-0">Specialization: <?php echo $row['specialist']; ?></p>
+                                    <p class="mb-0"> Behavior: 
+                                        <?php 
+                                            if($row['rating'] <= 0){
+                                                echo "Polite.";
+                                            }else{
+                                                 echo $row['rating'];
+                                            }
+                                         ?>
+                                        </p>
+                                    <p class="mb-0">Contact: 0<?php echo $row['number']; ?></p>
                                     <p class="mb-0">E-mail: <?php echo $row['email']; ?></p>
                                     <a href="../chat.php?id=<?php echo $row['id']; ?>">Continue Chat</a>    
                                 </div>

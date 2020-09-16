@@ -82,6 +82,8 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link" href="doctor_contact.php">Doctor Contact</a>
                 </li>
+                
+
                 <li class="nav-item">
                     <a class="nav-link" href="../logout.php">Logout</a>
                 </li>
@@ -177,7 +179,7 @@ session_start();
                                     <p class="mb-2">Specialist: <?php echo  $name = $row['specialist']; ?></p>
                                 </li>
                                 <li>
-                                    <p class="mb-2">Number: <?php echo  $name = $row['number']; ?></p>
+                                    <p class="mb-2">Number: 0<?php echo  $name = $row['number']; ?></p>
                                 </li>
                                 <li>
                                     <p class="mb-2">E-mail: <?php echo  $name = $row['email']; ?></p>
@@ -206,15 +208,14 @@ session_start();
                       $email = $_POST['email'];
                       $contact = $_POST['contact'];
                       $behavior = $_POST['behavior'];
-                      $rating = $_POST['rating'];
-                      $commercial = $_POST['commercial'];
                       $visit = $_POST['visit'];
+                      $report_visit = $_POST['report_visit'];
                       $suggestion = $_POST['suggestion'];
 
-                      $insert = "INSERT INTO feedback (doctor_id, name, email, mobile, Behaviour, Commercial, visit, suggestion, rating) VALUES ('$doctorId','$name','$email','$contact','$behavior', '$commercial','$visit','$suggestion','$rating')";
+                      $insert = "INSERT INTO feedback (doctor_id, name, email, mobile, Behaviour, visit, report_visit, suggestion) VALUES ('$doctorId','$name','$email','$contact','$behavior','$visit', '$report_visit', '$suggestion')";
                       if($conn->query($insert))
                       {
-                        echo "Data Inserted";	
+                        echo "";	
                       }else {
                         echo "Data not inserted";
                       }
@@ -231,7 +232,7 @@ session_start();
                         </div>
 
                         <div class="form-group mb-4">
-                            <label> email :</label>
+                            <label> Email :</label>
                             <input type="blood" name="email" class="form-control text" id="suger"
                                 placeholder="Enter your email ">
 
@@ -246,36 +247,23 @@ session_start();
                         <div class="form-group">
 
                             <label>Doctor Behaviour :</label>
-                            <textarea name="behavior" class="form-control" rows="4" id="specialist"
-                                placeholder="Enter your review"></textarea>
 
-                            <div class="form-group mb-4">
-                                <small>Select Rating</small>
-                                <select class="form-control" name="rating" id="exampleFormControlSelect1">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
+                           <select name="behavior" id="report" class="form-control text">
+                                    <option value="commercial">Commercial</option>
+                                    <option value="professional">Professional</option>
+                                    <option value="polite">Polite</option>
 
-
-                            <div class="form-group">
-                                <label> Comercial?</label>
-
-                                <select name="commercial" id="Commercial" class="form-control text">
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
 
                                 </select>
+                           
+
 
                             </div>
 
                             <div class="form-group">
                                 <label> Report Visit:</label>
 
-                                <select name="report" id="report" class="form-control text">
+                                <select name="report_visit" class="form-control text">
                                     <option value="expensive">Expensive</option>
                                     <option value="bearable">Bearable</option>
 
@@ -284,9 +272,9 @@ session_start();
                             </div>
 
                             <div class="form-group">
-                                <label> Doctor Visit</label>
+                                <label> Doctor Visit:</label>
 
-                                <select name="visit" id="visit" class="form-control text">
+                                <select name="visit" class="form-control text">
                                     <option value="expensive">Expensive</option>
                                     <option value="bearable">Bearable</option>
 
@@ -295,7 +283,7 @@ session_start();
                             </div>
                             <div class="form-group">
 
-                                <label> Any Suggestion?:</label>
+                                <label> Any Suggestion?</label>
                                 <textarea name="suggestion" class="form-control" rows="4" id="specialist"
                                     placeholder="Suggestion"></textarea>
 

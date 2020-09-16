@@ -56,6 +56,7 @@
 			height: 100vh;
 			background: #e76166;
 
+
 		}
 		.card{
 			position: relative;
@@ -72,8 +73,8 @@
 
 		}
 		.card .card-body .message{
-			background:#c0c0c0;
-
+			background: #c0c0c0;
+      
 		}
 
     
@@ -178,8 +179,8 @@
 
               <ul><h5>Health Condition</h5></ul>
           <ul>
-            <li><p class="mb-0">BP: <?php echo $row['pressure']; ?></p></li>
-            <li><p class="mb-0">BS: <?php echo $row['suger']; ?></p></li>
+            <li><p class="mb-0">Blood Pressure: <?php echo $row['pressure']; ?></p></li>
+            <li><p class="mb-0">Blood Suger: <?php echo $row['suger']; ?></p></li>
             <li><p class="mb-0">Temperature: <?php echo $row['temperature']; ?></p></li>
          </ul>
         <?php
@@ -192,8 +193,8 @@
 
 
 	 <div class="chat">
-		<div class="card">
-		<div class="card-body p-0">
+		<div class="card pt-3">
+		<div class="card-body p-0 mt-5">
 			<?php
 		      include '../db/connection.php';
 		      $doctorId = $_SESSION['userId'];
@@ -203,7 +204,7 @@
 		            while ($row = mysqli_fetch_array($result)){
       		?>
 		   <div class="message p-2 rounded mb-2">
-				<p class="mb-0"><?php echo $row['messages']; ?></p>
+				<p class="mb-0 font-weight-bold text-danger"><b><big><?php echo $row['messages']; ?></big></b></p>
 			</div>
 			<?php
 				}

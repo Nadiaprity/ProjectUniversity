@@ -78,12 +78,11 @@
             <div class="py-2 border mb-3">
             <p class="mb-1 text-capitalize">Name: <?php echo $row['name']; ?></p>
             <p class="mb-1">E-mail: <?php echo $row['email']; ?></p>
-            <p class="mb-1">Contact: <?php echo $row['mobile']; ?></p>
+            <p class="mb-1">Contact: 0<?php echo $row['mobile']; ?></p>
             <p class="mb-1">Behavior: <?php echo $row['Behaviour']; ?></p>
-            <p class="mb-1">Commercial: <?php echo $row['Commercial']; ?></p>
             <p class="mb-1">Visit: <?php echo $row['visit']; ?></p>
+            <p class="mb-1">Report Visit: <?php echo $row['report_visit']; ?></p>
             <p class="mb-1">Suggestion: <?php echo $row['suggestion']; ?></p>
-            <p class="mb-1">Rating: <?php echo $row['rating']; ?></p>
             </div>
            <?php
             }

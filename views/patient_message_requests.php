@@ -30,7 +30,7 @@
     <div class="row" >
       <div class="col-12 col-lg-8 m-auto py-5" id="back">
         <div class="pb-3"><h5>Message Requests</h5></div>
-        <ul class="list-group">
+        <ul class="list-group" style="height: 300px; overflow-y: auto;">
           <?php
           include '../db/connection.php';
             $doctorid = $_SESSION['userId'];
