@@ -172,6 +172,10 @@
       background: red;
       z-index: 99999;
     }
+  .chat-card .message{
+      background: #c0c0c0;
+      
+    }
 
   </style>
 
@@ -268,11 +272,36 @@
           $result = mysqli_query($conn, $select_message);
             while ($row = mysqli_fetch_array($result)){
       ?>
-      <div class="left-message">
+      <!-- <div class="left-message">
         <p class="text-danger font-weight-bold"><b><big><?php echo $row['messages']; ?></big></b></p>
-      </div>
+      </div> -->
 
-      <?php
+      <?php 
+            // $split = str_split($row['messages'], 6);
+            // echo gettype($row['messages'])
+           $pieces = explode(" ", $row['messages']);
+          if($pieces[0] == 'patient'){
+            ?>
+            <div class="message p-2 rounded mb-2 bg-primary" style="width: 250px; margin-left: auto;">
+               <p class="mb-0 font-weight text-white">
+                  <b><big>
+                    <?php echo substr($row['messages'], 7);?>
+                 </big></b>
+                </p>
+            </div>
+            <?php
+              }elseif($pieces[0]=='doctor'){
+            ?>
+
+             <div class="message p-2 rounded mb-2" style="width: 250px;">
+               <p class="mb-0 font-weight-bold text-danger">
+                <b><big>
+                  <?php echo substr($row['messages'], 6); ?>
+                </big></b></p>
+              </div>
+
+          <?php
+            }
         }
       ?>
 
@@ -283,7 +312,7 @@
         include '../db/connection.php';
         $patientId = $_SESSION['userId'];
         $doctorId = $_GET['id'];
-        $message = $_POST['message'];
+        $message = 'patient '.$_POST['message'];
         $q1 ="INSERT INTO chat (doctor_id,patient_id,patient_name,messages) VALUES('$doctorId','$patientId','$name','$message')";
         $conn->query($q1);
         header("Refresh:0");

@@ -56,8 +56,10 @@
 			height: 100vh;
 			background: #e76166;
 
-
+    
 		}
+
+  
 		.card{
 			position: relative;
 			top: 0;
@@ -72,13 +74,14 @@
 
 
 		}
-		.card .card-body .message{
-			background: #c0c0c0;
-      
-		}
 
     
+    .card .card-body .message{
+      background: #c0c0c0;
+      
+    }
 
+  
 		.card .card-body p{
 			font-size: 15px;
 			line-height: 1.5rem;
@@ -203,9 +206,37 @@
 		          $result = mysqli_query($conn, $select_message);
 		            while ($row = mysqli_fetch_array($result)){
       		?>
-		   <div class="message p-2 rounded mb-2">
-				<p class="mb-0 font-weight-bold text-danger"><b><big><?php echo $row['messages']; ?></big></b></p>
-			</div>
+		   
+          <?php 
+            // $split = str_split($row['messages'], 6);
+            // echo gettype($row['messages'])
+           $pieces = explode(" ", $row['messages']);
+          if($pieces[0] == 'doctor'){
+            ?>
+            <div class="message p-2 rounded mb-2 bg-primary" style="width: 250px; margin-left: auto;">
+               <p class="mb-0 font-weight-bold text-white">
+                  <b><big>
+                    <?php echo substr($row['messages'], 6);?>
+                 </big></b>
+                </p>
+            </div>
+            <?php
+              }elseif($pieces[0]=='patient'){
+            ?>
+
+             <div class="message p-2 rounded mb-2" style="width: 250px;">
+               <p class="mb-0 font-weight-bold text-danger">
+                <b><big>
+                  <?php echo substr($row['messages'], 7);?>
+                </big></b></p>
+              </div>
+
+          <?php
+            }
+          ?>
+            
+          
+			
 			<?php
 				}
 			?>
@@ -216,7 +247,7 @@
 		        include '../db/connection.php';
 		        $patientId = $_GET['id'];
 		        $doctorId = $_SESSION['userId'];
-		        $message = $_POST['message'];
+		        $message = 'doctor '.$_POST['message'];
 		        $q1 ="INSERT INTO chat (doctor_id,patient_id,messages) VALUES('$doctorId','$patientId','$message')";
             $conn->query($q1);
             header("Refresh:0");
