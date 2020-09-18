@@ -183,7 +183,7 @@
               <ul><h5>Health Condition</h5></ul>
           <ul>
             <li><p class="mb-0">Blood Pressure: <?php echo $row['pressure']; ?></p></li>
-            <li><p class="mb-0">Blood Suger: <?php echo $row['suger']; ?></p></li>
+            <li><p class="mb-0">Blood Sugar: <?php echo $row['suger']; ?></p></li>
             <li><p class="mb-0">Temperature: <?php echo $row['temperature']; ?></p></li>
          </ul>
         <?php

@@ -250,7 +250,7 @@
             ?>
             <h5>Health Condition</h5>
          <li><p class="mb-0">Blood Pressure:<?php echo $row['pressure']; ?></p></li>
-         <li><p class="mb-0">Blood Suger: <?php echo $row['suger']; ?></p></li>
+         <li><p class="mb-0">Blood Sugar: <?php echo $row['suger']; ?></p></li>
          <li><p class="mb-0">Temperature: <?php echo $row['temperature']; ?></p></li>
         <?php
           }
@@ -344,12 +344,12 @@
        <h5 class="md-0 text-white">Your health condition is not good</h5>
      </div>
      <div class="should-eat">
-      <h5 class="md-0">You should eat</h5>
+      <h5 class="md-0">You should do some physical exercise:</h5>
        <ul>
-         <li><p class="mb-0">rice</p></li>
-         <li><p class="mb-0">Fruits</p></li>
-         <li><p class="mb-0">Lots of water</p></li>
-         <li><p class="mb-0">Vegatibles</p></li>
+         <li><p class="mb-0">Simple yoga</p></li>
+         <li><p class="mb-0">Breathing practice</p></li>
+         <li><p class="mb-0">Morning Walk</p></li>
+         
        </ul>
      </div>
      </div>
@@ -373,26 +373,13 @@
        </ul>
      </div>
      </div>
+    
     <?php
       }
     ?>
 
    
-  <div class="step-1">
-      <div class="dieases-title">
-       <h5 class="md-0 text-white">Your health condition is good</h5>
-     </div>
-     <div class="should-eat">
-      <h5 class="md-0">You should eat</h5>
-       <ul>
-         <li><p class="mb-0">Rice</p></li>
-         <li><p class="mb-0">Fish</p></li>
-         <li><p class="mb-0">Chicken</p></li>
-       </ul>
-     </div>
-     </div>
-  
-  
+ 
 
 
 
