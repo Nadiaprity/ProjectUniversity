@@ -378,6 +378,25 @@
       }
     ?>
 
+
+
+   
+  <div class="step-1">
+      <div class="dieases-title">
+       <h5 class="md-0 text-white"></h5>
+     </div>
+     <div class="should-eat">
+      <h5 class="md-0">You should eat:</h5>
+       <ul>
+         <li><p class="mb-0">Vegetables</p></li>
+         <li><p class="mb-0">Fish</p></li>
+         <li><p class="mb-0">Fruits</p></li>
+         <li><p class="mb-0">Lots of water</p></li>
+       </ul>
+     </div>
+     </div>
+  
+
    
  
 

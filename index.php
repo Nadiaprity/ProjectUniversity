@@ -62,7 +62,7 @@
 </div>
        </header>
           <div class="flex-center flex-column">
-          	<h1 class="text-white font-weight-bold mb-4">Pleace Do Your Registration</h1>
+          	<h1 class="text-white font-weight-bold mb-4">Please Do Your Registration</h1>
           	<div class="buttons">
           	  <a href="./views/patient/auth/reg.php" class="btn">Patient Registration / Login</a>
 			  <a href="./views/doctor/auth/doctor_reg.php" class="btn">Doctor Registration / Login</a>

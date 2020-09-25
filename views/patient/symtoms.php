@@ -22,6 +22,7 @@
 		$weight=$_POST["weight"];
 		$height=$_POST["height"];
 		$temperature=$_POST["temperature"];
+
 				
 				
 				$sql = "INSERT INTO health_info (user_id, pressure, suger, weight, height, temperature) 

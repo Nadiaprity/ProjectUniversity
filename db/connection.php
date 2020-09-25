@@ -3,8 +3,8 @@
 	$conn = mysqli_connect('localhost', 'root', '', 'health');
 ?>
 
-
+<!-- 
 <?php
 
-$pdo = new PDO ("mysql:host=localhost;dbname=health",'root','');
-?>
+// $pdo = new PDO ("mysql:host=localhost;dbname=health",'root','');
+?> -->

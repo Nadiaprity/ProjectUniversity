@@ -37,9 +37,12 @@
             $select_patient = "SELECT patient_id, patient_name FROM chat WHERE doctor_id='$doctorid'";
               $result = mysqli_query($conn, $select_patient);
                 while ($row = mysqli_fetch_array($result)){
+                  // $data = array_unique($row);
            ?>
           <li class="list-group-item py-1">
-            <a href="doctor_chat.php?id=<?php echo $row['patient_id']; ?>" class="text-capitalize d-block"><?php echo $row['patient_name']; ?></a>
+            <a href="doctor_chat.php?id=<?php echo $row['patient_id']; ?>" class="text-capitalize d-block">
+              <?php echo $row['patient_name']; ?>
+            </a>
           </li>
           <?php
             }
